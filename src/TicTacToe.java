@@ -35,7 +35,7 @@ public class TicTacToe {
                 playerNow = (playerNow + 1) % 2;
 
             }
-            boolean repeat = SafeInput.getYN(in, "Would you like to continue?");
+            boolean repeat = SafeInput.getYN(in, "Would you like to continue? (Y/N)");
 
             if (!repeat) {
                 done = true;
@@ -92,7 +92,7 @@ public class TicTacToe {
             }
         }
         for(int e = 0; e < COLS; e++){ // cols
-            if(board[e][e].equals(player) && board[1][e].equals(player) && board[2][e].equals(player)){
+            if(board[0][e].equals(player) && board[1][e].equals(player) && board[2][e].equals(player)){
                 return true;
             }
         } // diagonal
