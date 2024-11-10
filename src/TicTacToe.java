@@ -15,24 +15,28 @@ public class TicTacToe {
             boolean gameOver = false;
             while (!gameOver) {
                 display();
+                //sets player to X first and gets coordinates
                 int move = SafeInput.getRangedInt(in, "Player " + (playerNow == 0 ? "X" : "O") + " make your move, ", 1, 9);
-
+                //below determines the coordinates is a win, tie, or invalid, loops if coordinates given doesn't work
                 boolean isMoveValid = movePlace(move, playerNow == 0 ? "X" : "O");
+                //invalid move
                 if (!isMoveValid) {
                     System.out.println("This spot has already been taken! ");
                     continue;
                 }
+                //player wins
                 if (isWin(playerNow == 0 ? "X" : "O")) {
                     display();
                     System.out.println("Player " + (playerNow == 0 ? "X" : "O") + " Wins!");
                     break;
                 }
+                //if needed, tie
                 if (isTie()) {
                     display();
                     System.out.println("The game is a tie! ");
                     break;
                 }
-                playerNow = (playerNow + 1) % 2;
+                playerNow = (playerNow + 1) % 2; // changes players
 
             }
             boolean repeat = SafeInput.getYN(in, "Would you like to continue? (Y/N)");
